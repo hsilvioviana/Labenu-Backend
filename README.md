@@ -1,2 +1,2 @@
-# Labenu_Backend
+# Labenu-Backend
 Parte do Backend para o projeto Fullstack da Labenu
