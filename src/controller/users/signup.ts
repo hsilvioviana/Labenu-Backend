@@ -13,7 +13,7 @@ export const signup = async (req: Request,res: Response) : Promise<void> => {
 
       const token = await signupBusiness(input)
 
-      res.status(201).send({ token })
+      res.status(200).send({ token })
    } 
    catch (error) {
 

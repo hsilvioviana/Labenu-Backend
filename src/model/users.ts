@@ -39,3 +39,10 @@ export type user = {
    createdAt: Date,
    updatedAt: Date
 }
+
+export type usersLoginInputDTO = {
+
+   nickname?: string,
+   email?: string,
+   password: string
+}
