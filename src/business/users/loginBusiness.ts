@@ -1,5 +1,4 @@
-import { getUserByEmail } from "../../data/users/getUserByEmail";
-import { getUserByNickname } from "../../data/users/getUserByNickname";
+import { getUserByNicknameOrEmail } from "../../data/users/getUserByNicknameOrEmail";
 import { user, usersLoginInputDTO } from "../../model/users";
 import { generateToken } from "../../services/authenticator";
 import { compare } from "../../services/hashManager";
@@ -9,33 +8,24 @@ export const loginBusiness = async (input: usersLoginInputDTO) : Promise<string>
 
     try {
 
-        if ((!input.nickname && !input.email) || !input.password) {
+        if (!input.login || !input.password) {
 
-            throw new Error("Você deve fornecer: ('nickname' ou 'email') e 'password'")
+            throw new Error("Você deve fornecer: 'login' e 'password'")
         }
 
-        let existsUser
+        const user: user = await getUserByNicknameOrEmail(input.login)
 
-        if (input.nickname) {
-
-            existsUser = await getUserByNickname(input.nickname)
-        }
-        else if (input.email) {
-
-            existsUser = await getUserByEmail(input.email)
-        }
-
-        if (!existsUser) {
+        if (!user) {
 
             throw new Error("Usuário não encontrado")
         }
 
-        if (!await compare(input.password, existsUser.password)) {
+        if (!await compare(input.password, user.password)) {
 
             throw new Error("Senha inválida")
         }
 
-        const token = generateToken({ id: existsUser.id, role: existsUser.role })
+        const token = generateToken({ id:user.id, role:user.role })
 
         return token
     }
