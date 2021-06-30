@@ -1,6 +1,7 @@
 import { createUser } from "../../data/users/createUser"
 import { getUserByEmail } from "../../data/users/getUserByEmail"
 import { getUserByNickname } from "../../data/users/getUserByNickname"
+import { getUserByNicknameOrEmail } from "../../data/users/getUserByNicknameOrEmail"
 import { userCreator, usersSignupInputDTO, USER_ROLES } from "../../model/users"
 import { generateToken } from "../../services/authenticator"
 import { hash } from "../../services/hashManager"
@@ -21,16 +22,18 @@ export const signupBusiness = async (input: usersSignupInputDTO) : Promise<strin
             throw new Error("A senha deve ter no mínimo 6 caracteres") 
         }
 
-        const existsNickname = await getUserByNickname(input.nickname)
-        if (existsNickname) {
+        let existsUser
 
-            throw new Error("Esse nickname já está sendo utilizado")
+        existsUser = await getUserByNicknameOrEmail(input.nickname)
+        if (existsUser) {
+
+            throw new Error("'nickname' inválido")
         }
 
-        const existsEmail = await getUserByEmail(input.email)
-        if (existsEmail) {
+        existsUser = await getUserByNicknameOrEmail(input.email)
+        if (existsUser) {
 
-            throw new Error("Esse email já está sendo utilizado")
+            throw new Error("'email' inválido")
         }
 
         const newUser: userCreator = {

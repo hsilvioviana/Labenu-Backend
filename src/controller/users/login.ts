@@ -6,9 +6,9 @@ export const login = async (req: Request, res: Response) : Promise<void> => {
 
     try {
 
-        const { nickname, email, password } = req.body
+        const { login, password } = req.body
 
-        const input: usersLoginInputDTO = { nickname, email, password }
+        const input: usersLoginInputDTO = { login, password }
 
         const token = await loginBusiness(input)
 

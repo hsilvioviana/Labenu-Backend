@@ -42,7 +42,6 @@ export type user = {
 
 export type usersLoginInputDTO = {
 
-   nickname?: string,
-   email?: string,
+   login: string,
    password: string
 }
