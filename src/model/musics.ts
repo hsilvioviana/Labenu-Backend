@@ -40,3 +40,9 @@ export type post = {
 	updatedAt: string,
     postedBy: postedBy
 }
+
+export type musicsGetMusicInputDTO = {
+	
+	token: string,
+	id: string
+}
