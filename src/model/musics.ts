@@ -20,3 +20,23 @@ export type postCreator = {
 	album: string,
     postedBy: string
 }
+
+export type postedBy = {
+	
+	id: string,
+	name: string
+}
+
+export type post = {
+
+    id: string,
+	title: string,
+	author: string,
+	releaseDate: string,
+	file: string,
+	genres: string,
+	album: string,
+	createdAt: string,
+	updatedAt: string,
+    postedBy: postedBy
+}
