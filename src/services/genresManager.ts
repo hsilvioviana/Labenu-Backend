@@ -10,7 +10,12 @@ export const genresValid = (arr: string[]) : boolean => {
     return true
 }
 
-export const genresFormat = (arr: string[]) : string => {
+export const genresFormat = (genres: string[]) : string => {
 
-    return arr.join("|%|")
+    return genres.join("|%|")
+}
+
+export const genresSplit = (genres: string) : string[] => {
+
+  return genres.split("|%|")
 }
