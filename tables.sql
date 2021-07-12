@@ -35,3 +35,12 @@ updatedAt DATE NOT NULL,
 postedBy VARCHAR(64),
 FOREIGN KEY (postedBy) REFERENCES LFS_Users(id)
 );
+
+CREATE TABLE LFS_Playlists (
+id VARCHAR(64) PRIMARY KEY,
+title VARCHAR(64),
+creatorId VARCHAR(64),
+createdAt DATE NOT NULL,
+updatedAt DATE NOT NULL,
+FOREIGN KEY (creatorId) REFERENCES LFS_Users(id)
+);

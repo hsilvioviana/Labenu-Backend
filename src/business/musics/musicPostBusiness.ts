@@ -1,4 +1,4 @@
-import { createPost } from "../../data/musics.ts/createPost";
+import { createPost } from "../../data/musics/createPost";
 import { musicsPostInputDTO, postCreator } from "../../model/musics";
 import { getTokenData } from "../../services/authenticator";
 import { dateValid, dateFormat } from "../../services/dateManager";
