@@ -44,3 +44,11 @@ createdAt DATE NOT NULL,
 updatedAt DATE NOT NULL,
 FOREIGN KEY (creatorId) REFERENCES LFS_Users(id)
 );
+
+CREATE TABLE LFS_MusicsPlaylistsRelations (
+musicId VARCHAR(64),
+playlistId VARCHAR(64),
+addedAt DATE NOT NULL,
+FOREIGN KEY (musicId) REFERENCES LFS_Musics(id),
+FOREIGN KEY (playlistId) REFERENCES LFS_Playlists(id)
+);
