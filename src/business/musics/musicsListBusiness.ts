@@ -1,4 +1,4 @@
-import { getMusics } from "../../data/musics.ts/getMusics";
+import { getMusics } from "../../data/musics/getMusics";
 import { post } from "../../model/musics";
 import { getTokenData } from "../../services/authenticator";
 
