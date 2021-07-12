@@ -10,3 +10,19 @@ export type playlistCreator = {
     userId: string,
     title: string
 }
+
+export type playlistAddMusicInputDTO = {
+
+    token: string,
+	playlistId: string,
+    musicId: string
+}
+
+export type playlist = {
+
+    id: string,
+    title: string,
+    creatorId: string,
+    createdAt: string,
+    updatedAt: string
+}
