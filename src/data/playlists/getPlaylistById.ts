@@ -1,8 +1,8 @@
-import { playlist } from "../../model/playlists"
+import { playlistDetails } from "../../model/playlists"
 import { connection } from "../connection"
 
 
-export const getPlaylistById = async (id: string) : Promise <playlist> => {
+export const getPlaylistById = async (id: string) : Promise <playlistDetails> => {
 
     const result = await connection.raw(`SELECT * FROM LFS_Playlists WHERE id = "${id}"`)
 

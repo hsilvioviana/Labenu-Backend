@@ -18,11 +18,17 @@ export type playlistAddOrRemoveMusicInputDTO = {
     musicId: string
 }
 
-export type playlist = {
+export type playlistDetails = {
 
     id: string,
     title: string,
     creatorId: string,
     createdAt: string,
     updatedAt: string
+}
+
+export type playlist = {
+    playlistId: string
+    playlistName: string,
+    musics: object[]
 }
