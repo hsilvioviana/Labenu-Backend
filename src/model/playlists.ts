@@ -11,7 +11,7 @@ export type playlistCreator = {
     title: string
 }
 
-export type playlistAddMusicInputDTO = {
+export type playlistAddOrRemoveMusicInputDTO = {
 
     token: string,
 	playlistId: string,
