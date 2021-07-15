@@ -46,3 +46,9 @@ export type playlistMusics = {
     title: string,
     musics: post[]
 }
+
+export type playlistDeleteDTO = {
+    
+    id: string,
+    token: string
+}
