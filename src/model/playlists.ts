@@ -1,3 +1,5 @@
+import { post } from "./musics"
+
 export type playlistCreateInputDTO = {
 
     token: string,
@@ -28,7 +30,19 @@ export type playlistDetails = {
 }
 
 export type playlist = {
-    playlistId: string
-    playlistName: string,
-    musics: object[]
+
+    id: string
+    title: string,
+}
+
+export type playlistMusicsDTO = {
+    
+    id: string,
+    token: string
+}
+
+export type playlistMusics = {
+
+    title: string,
+    musics: post[]
 }
