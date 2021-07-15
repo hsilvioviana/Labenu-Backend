@@ -13,9 +13,22 @@ export type playlistCreator = {
     title: string
 }
 
-export type playlistAddOrRemoveMusicInputDTO = {
+export type playlistAddMusicInputDTO = {
 
     token: string,
+	playlistId: string,
+    musicId: string
+}
+
+export type playlistRemoveMusicInputDTO = {
+
+    token: string,
+	playlistId: string,
+    musicId: string
+}
+
+export type checkMusicPlaylistRelation = {
+
 	playlistId: string,
     musicId: string
 }

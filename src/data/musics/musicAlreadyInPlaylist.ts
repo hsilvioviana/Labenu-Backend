@@ -1,8 +1,8 @@
-import { playlistAddOrRemoveMusicInputDTO } from "../../model/playlists"
+import { checkMusicPlaylistRelation } from "../../model/playlists"
 import { connection } from "../connection"
 
 
-export const musicAlreadyInPlaylist = async (input: playlistAddOrRemoveMusicInputDTO) : Promise<boolean> => {
+export const musicAlreadyInPlaylist = async (input: checkMusicPlaylistRelation) : Promise<boolean> => {
 
     const result = await connection.raw(`SELECT * FROM LFS_MusicsPlaylistsRelations 
     WHERE musicId = "${input.musicId}" AND playlistId = "${input.playlistId}"`)
