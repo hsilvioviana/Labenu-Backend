@@ -2,12 +2,11 @@ import { getMusicById } from "../../data/musics/getMusicById";
 import { musicAlreadyInPlaylist } from "../../data/musics/musicAlreadyInPlaylist";
 import { addMusicInPlaylist } from "../../data/playlists/addMusicInPlaylist";
 import { getPlaylistById } from "../../data/playlists/getPlaylistById";
-import { removeMusicInPlaylist } from "../../data/playlists/removeMusicInPlaylist";
-import { playlistAddOrRemoveMusicInputDTO } from "../../model/playlists";
+import { checkMusicPlaylistRelation, playlistAddMusicInputDTO } from "../../model/playlists";
 import { getTokenData } from "../../services/authenticator";
 
 
-export const playlistAddOrRemoveMusicBusiness = async (input: playlistAddOrRemoveMusicInputDTO) : Promise<string> => {
+export const playlistAddMusicBusiness = async (input: playlistAddMusicInputDTO) : Promise<string> => {
 
     try {
 
@@ -37,17 +36,18 @@ export const playlistAddOrRemoveMusicBusiness = async (input: playlistAddOrRemov
             throw new Error("Você não pode mexer em playlists de outras pessoas")
         }
 
-        if (!await musicAlreadyInPlaylist(input)) {
+        const checkMusicPlaylistRelation: checkMusicPlaylistRelation = 
+        { musicId: input.musicId, playlistId: input.playlistId }
+
+        if (!await musicAlreadyInPlaylist(checkMusicPlaylistRelation)) {
 
             await addMusicInPlaylist(input)
             
             return "Música adicionada com sucesso"
         }
         else {
-
-            await removeMusicInPlaylist(input)
             
-            return "Música removida com sucesso"
+            throw new Error("A música já foi adicionada na playlist")
         }
     }
     catch (error) {
