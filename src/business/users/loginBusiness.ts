@@ -1,10 +1,10 @@
-import { getUserByNicknameOrEmail } from "../../data/users/getUserByNicknameOrEmail";
-import { user, usersLoginInputDTO } from "../../model/users";
-import { generateToken } from "../../services/authenticator";
-import { compare } from "../../services/hashManager";
+import { getUserByNicknameOrEmail } from "../../data/users/getUserByNicknameOrEmail"
+import { user, loginDTO } from "../../model/users"
+import { generateToken } from "../../services/authenticator"
+import { compare } from "../../services/hashManager"
 
 
-export const loginBusiness = async (input: usersLoginInputDTO) : Promise<string> => {
+export const loginBusiness = async (input: loginDTO) : Promise<string> => {
 
     try {
 

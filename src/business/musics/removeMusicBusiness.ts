@@ -4,7 +4,7 @@ import { removePostDTO } from "../../model/musics"
 import { getTokenData } from "../../services/authenticator"
 
 
-export const removePostBusiness = async (input: removePostDTO) : Promise<void> => {
+export const removeMusicBusiness = async (input: removePostDTO) : Promise<void> => {
 
     try {
 

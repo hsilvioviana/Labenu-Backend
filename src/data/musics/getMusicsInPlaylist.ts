@@ -2,6 +2,7 @@ import { post } from "../../model/musics"
 import { genresSplit } from "../../services/genresManager"
 import { connection } from "../connection"
 
+
 export const getMusicsInPlaylist = async (playlistId: string) : Promise<post[]> => {
 
     const result = await connection.raw(`SELECT m.id, m.title, m.author,

@@ -1,5 +1,5 @@
-import { playlistCreator } from "../../model/playlists";
-import { connection } from "../connection";
+import { playlistCreator } from "../../model/playlists"
+import { connection } from "../connection"
 
 
 export const createPlaylist = async (input: playlistCreator) : Promise<void> => {

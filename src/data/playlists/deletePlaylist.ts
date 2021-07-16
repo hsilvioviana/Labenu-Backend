@@ -1,4 +1,4 @@
-import { connection } from "../connection";
+import { connection } from "../connection"
 
 
 export const deletePlaylist = async (id: string) : Promise<void> => {

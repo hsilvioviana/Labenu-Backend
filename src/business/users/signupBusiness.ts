@@ -1,14 +1,12 @@
 import { createUser } from "../../data/users/createUser"
-import { getUserByEmail } from "../../data/users/getUserByEmail"
-import { getUserByNickname } from "../../data/users/getUserByNickname"
 import { getUserByNicknameOrEmail } from "../../data/users/getUserByNicknameOrEmail"
-import { userCreator, usersSignupInputDTO, USER_ROLES } from "../../model/users"
+import { userCreator, signupDTO, USER_ROLES } from "../../model/users"
 import { generateToken } from "../../services/authenticator"
 import { hash } from "../../services/hashManager"
 import { generateId } from "../../services/idGenerator"
 
 
-export const signupBusiness = async (input: usersSignupInputDTO) : Promise<string> => {
+export const signupBusiness = async (input: signupDTO) : Promise<string> => {
 
     try {
         
@@ -25,15 +23,17 @@ export const signupBusiness = async (input: usersSignupInputDTO) : Promise<strin
         let existsUser
 
         existsUser = await getUserByNicknameOrEmail(input.nickname)
+
         if (existsUser) {
 
-            throw new Error("'nickname' inválido")
+            throw new Error("O 'nickname' fornecido é inválido")
         }
 
         existsUser = await getUserByNicknameOrEmail(input.email)
+        
         if (existsUser) {
 
-            throw new Error("'email' inválido")
+            throw new Error("O 'email' fornecido é inválido")
         }
 
         const newUser: userCreator = {

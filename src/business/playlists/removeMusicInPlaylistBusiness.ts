@@ -1,12 +1,12 @@
-import { getMusicById } from "../../data/musics/getMusicById";
-import { musicAlreadyInPlaylist } from "../../data/musics/musicAlreadyInPlaylist";
-import { getPlaylistById } from "../../data/playlists/getPlaylistById";
-import { removeMusicInPlaylist } from "../../data/playlists/removeMusicInPlaylist";
-import { checkMusicPlaylistRelation, playlistRemoveMusicInputDTO } from "../../model/playlists";
-import { getTokenData } from "../../services/authenticator";
+import { getMusicById } from "../../data/musics/getMusicById"
+import { musicAlreadyInPlaylist } from "../../data/musics/musicAlreadyInPlaylist"
+import { getPlaylistById } from "../../data/playlists/getPlaylistById"
+import { removeMusicInPlaylist } from "../../data/playlists/removeMusicInPlaylist"
+import { checkMusicPlaylistRelation, removeMusicInPlaylistDTO } from "../../model/playlists"
+import { getTokenData } from "../../services/authenticator"
 
 
-export const playlistRemoveMusicBusiness = async (input: playlistRemoveMusicInputDTO) : Promise<string> => {
+export const removeMusicInPlaylistBusiness = async (input: removeMusicInPlaylistDTO) : Promise<void> => {
 
     try {
 
@@ -46,8 +46,6 @@ export const playlistRemoveMusicBusiness = async (input: playlistRemoveMusicInpu
         else {
 
             await removeMusicInPlaylist(input)
-            
-            return "Música removida com sucesso"
         }
     }
     catch (error) {

@@ -1,6 +1,6 @@
 import { post } from "./musics"
 
-export type playlistCreateInputDTO = {
+export type createPlaylistDTO = {
 
     token: string,
 	title: string
@@ -13,14 +13,14 @@ export type playlistCreator = {
     title: string
 }
 
-export type playlistAddMusicInputDTO = {
+export type addMusicInPlaylistDTO = {
 
     token: string,
 	playlistId: string,
     musicId: string
 }
 
-export type playlistRemoveMusicInputDTO = {
+export type removeMusicInPlaylistDTO = {
 
     token: string,
 	playlistId: string,
@@ -48,7 +48,7 @@ export type playlist = {
     title: string,
 }
 
-export type playlistMusicsDTO = {
+export type getPlaylistDTO = {
     
     id: string,
     token: string
@@ -60,7 +60,7 @@ export type playlistMusics = {
     musics: post[]
 }
 
-export type playlistDeleteDTO = {
+export type removePlaylistDTO = {
     
     id: string,
     token: string

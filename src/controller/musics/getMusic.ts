@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { getMusicBusiness } from "../../business/musics/getMusicBusiness"
-import { musicsGetMusicInputDTO, post } from "../../model/musics"
+import { getMusicDTO, post } from "../../model/musics"
+
 
 export const getMusic = async (req: Request, res: Response) : Promise<void> => {
 
@@ -10,7 +11,7 @@ export const getMusic = async (req: Request, res: Response) : Promise<void> => {
 
         const id = req.params.id
 
-        const input: musicsGetMusicInputDTO = { token, id }
+        const input: getMusicDTO = { token, id }
 
         const post: post = await getMusicBusiness(input)
 
