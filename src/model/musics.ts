@@ -43,6 +43,12 @@ export type post = {
 
 export type musicsGetMusicInputDTO = {
 	
-	token: string,
-	id: string
+	id: string,
+	token: string
+}
+
+export type removePostDTO = {
+    
+    id: string,
+    token: string
 }
