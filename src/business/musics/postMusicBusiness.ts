@@ -1,12 +1,12 @@
-import { createPost } from "../../data/musics/createPost";
-import { musicsPostInputDTO, postCreator } from "../../model/musics";
-import { getTokenData } from "../../services/authenticator";
-import { dateValid, dateFormat } from "../../services/dateManager";
-import { genresFormat, genresValid } from "../../services/genresManager";
-import { generateId } from "../../services/idGenerator";
+import { createPost } from "../../data/musics/createPost"
+import { postMusicDTO, postCreator } from "../../model/musics"
+import { getTokenData } from "../../services/authenticator"
+import { dateValid, dateFormat } from "../../services/dateManager"
+import { genresFormat, genresValid } from "../../services/genresManager"
+import { generateId } from "../../services/idGenerator"
 
 
-export const musicPostBusiness = async (input: musicsPostInputDTO) : Promise<void> => {
+export const postMusicBusiness = async (input: postMusicDTO) : Promise<void> => {
 
     try {
 
@@ -19,7 +19,7 @@ export const musicPostBusiness = async (input: musicsPostInputDTO) : Promise<voi
 
         if (!dateValid(input.releaseDate)) {
 
-            throw new Error("'date' deve estar no formato: dd/mm/aaaa")
+            throw new Error("O campo 'date' deve estar no formato: dd/mm/aaaa")
         }
 
         if (!genresValid(input.genres)) {

@@ -1,5 +1,5 @@
-import { userCreator } from "../../model/users";
-import { connection } from "../connection";
+import { userCreator } from "../../model/users"
+import { connection } from "../connection"
 
 
 export const createUser = async (user: userCreator) : Promise<void> => {

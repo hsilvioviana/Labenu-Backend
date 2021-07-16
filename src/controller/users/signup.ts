@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { signupBusiness } from "../../business/users/signupBusiness"
-import { usersSignupInputDTO } from "../../model/users"
+import { signupDTO } from "../../model/users"
 
 
 export const signup = async (req: Request,res: Response) : Promise<void> => {
@@ -9,7 +9,7 @@ export const signup = async (req: Request,res: Response) : Promise<void> => {
 
       const { name, nickname, email, password } = req.body
 
-      const input: usersSignupInputDTO = { name, nickname, email, password }
+      const input: signupDTO = { name, nickname, email, password }
 
       const token = await signupBusiness(input)
 

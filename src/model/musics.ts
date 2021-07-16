@@ -1,4 +1,4 @@
-export type musicsPostInputDTO = {
+export type postMusicDTO = {
 
     token: string,
 	title: string,
@@ -41,7 +41,7 @@ export type post = {
     postedBy: postedBy
 }
 
-export type musicsGetMusicInputDTO = {
+export type getMusicDTO = {
 	
 	id: string,
 	token: string

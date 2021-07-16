@@ -1,12 +1,12 @@
-import { getMusicById } from "../../data/musics/getMusicById";
-import { musicAlreadyInPlaylist } from "../../data/musics/musicAlreadyInPlaylist";
-import { addMusicInPlaylist } from "../../data/playlists/addMusicInPlaylist";
-import { getPlaylistById } from "../../data/playlists/getPlaylistById";
-import { checkMusicPlaylistRelation, playlistAddMusicInputDTO } from "../../model/playlists";
-import { getTokenData } from "../../services/authenticator";
+import { getMusicById } from "../../data/musics/getMusicById"
+import { musicAlreadyInPlaylist } from "../../data/musics/musicAlreadyInPlaylist"
+import { addMusicInPlaylist } from "../../data/playlists/addMusicInPlaylist"
+import { getPlaylistById } from "../../data/playlists/getPlaylistById"
+import { checkMusicPlaylistRelation, addMusicInPlaylistDTO } from "../../model/playlists"
+import { getTokenData } from "../../services/authenticator"
 
 
-export const playlistAddMusicBusiness = async (input: playlistAddMusicInputDTO) : Promise<string> => {
+export const addMusicInPlaylistBusiness = async (input: addMusicInPlaylistDTO) : Promise<void> => {
 
     try {
 
@@ -42,8 +42,6 @@ export const playlistAddMusicBusiness = async (input: playlistAddMusicInputDTO) 
         if (!await musicAlreadyInPlaylist(checkMusicPlaylistRelation)) {
 
             await addMusicInPlaylist(input)
-            
-            return "Música adicionada com sucesso"
         }
         else {
             

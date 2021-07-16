@@ -1,14 +1,14 @@
 import { getMusicsInPlaylist } from "../../data/musics/getMusicsInPlaylist"
 import { getPlaylistById } from "../../data/playlists/getPlaylistById"
-import { playlistMusics, playlistMusicsDTO } from "../../model/playlists"
+import { playlistMusics, getPlaylistDTO } from "../../model/playlists"
 import { getTokenData } from "../../services/authenticator"
 
 
-export const playlistMusicsBusiness = async (input: playlistMusicsDTO) : Promise<playlistMusics> => {
+export const getPlaylistBusiness = async (input: getPlaylistDTO) : Promise<playlistMusics> => {
 
     try {
 
-        const user = getTokenData(input.token)
+        getTokenData(input.token)
 
         if (!input.id) {
 

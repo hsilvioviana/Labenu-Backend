@@ -1,9 +1,9 @@
 import { Request, Response } from "express"
-import { removePostBusiness } from "../../business/musics/removePostBusiness"
+import { removeMusicBusiness } from "../../business/musics/removeMusicBusiness"
 import { removePostDTO } from "../../model/musics"
 
 
-export const removePost = async (req: Request, res: Response) : Promise<void> => {
+export const removeMusic = async (req: Request, res: Response) : Promise<void> => {
 
     try {
 
@@ -13,9 +13,9 @@ export const removePost = async (req: Request, res: Response) : Promise<void> =>
 
         const input: removePostDTO = { id, token }
 
-        await removePostBusiness(input)
+        await removeMusicBusiness(input)
 
-        res.status(200).send({ message: "Música apagada com sucesso!"})
+        res.status(200).send({ message: "Música apagada com sucesso"})
     }
     catch (error) {
 

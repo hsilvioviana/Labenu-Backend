@@ -1,9 +1,9 @@
-import { getMusic } from "../../data/musics/getMusic";
-import { musicsGetMusicInputDTO, post } from "../../model/musics";
-import { getTokenData } from "../../services/authenticator";
+import { getMusic } from "../../data/musics/getMusic"
+import { getMusicDTO, post } from "../../model/musics"
+import { getTokenData } from "../../services/authenticator"
 
 
-export const getMusicBusiness = async (input: musicsGetMusicInputDTO) : Promise<post> => {
+export const getMusicBusiness = async (input: getMusicDTO) : Promise<post> => {
 
     try {
 
